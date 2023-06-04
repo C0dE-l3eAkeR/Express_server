@@ -1,1 +1,332 @@
-[{"patientName":"sadat","age":"23","bloodGroup":"A+","gender":"Female","mobile":"32423423","disease":"Fever","address":"19/G-1, North Tolarbag , Mirpur -1","email":"shoyib.hassan@northsouth.edu","department":"Cardiology","date":"2023-04-22","time":"15:15", "ID":"kamal" , "password":"100", "doctorid":"aniss"},{"patientName":"sadat","bloodGroup":"A+","age":"23","gender":"Female","mobile":"32423423","disease":"Fever","address":"19/G-1, North Tolarbag , Mirpur -1","email":"shoyib.hassan@northsouth.edu","department":"Cardiology","date":"2023-04-22","time":"15:15", "ID":"Tamal" , "password":"100", "doctorid":"aniss"}]
+
+[
+    {
+      "ID": "100",
+      "docName": "anis",
+      "docID" : "",
+      "docDepartment": "fasdfsdfa",
+      "docMobile": 4345345,
+      "userType" : "nurse",
+      "medicines": [
+        {
+          "medName": "pcm",
+          "dosage": 1,
+          "duration": "After Meal",
+          "ID": "63d415a012e7c45edf9459d1"
+        },
+        {
+          "medName": "cpm",
+          "dosage": 2,
+          "duration": "Before Meal",
+          "ID": "63d415a012e7c45edf9459d2"
+        }
+      ],
+      "extrainfo": "sfdfsf",
+      "patientName": "Piyush",
+      "patientAge": 23,
+      "email": "rajendra@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 455345,
+      "patientBloodGroup": "A-",
+      "patientDisease": "something",
+      "patientTemperature": 23,
+      "patientWeight": 23,
+      "patientBP": 23,
+      "patientGlucose": 23,
+      "date": "2023-01-22",
+      "time": "23:51",
+      "__v": 0
+    },
+    {
+      "ID": "63d4160212e7c45edf9459d5",
+      "docName": "Rajendra patel",
+      "docDepartment": "fasdfsdfa",
+      "docMobile": 4345345,
+      "medicines": [
+        {
+          "medName": "pcm",
+          "dosage": 1,
+          "duration": "After Meal",
+          "ID": "63d4160212e7c45edf9459d6"
+        },
+        {
+          "medName": "cpm",
+          "dosage": 2,
+          "duration": "Before Meal",
+          "ID": "63d4160212e7c45edf9459d7"
+        }
+      ],
+      "extrainfo": "sfdfsf",
+      "patientName": "Piyush",
+      "patientAge": 23,
+      "email": "rajendrapatel@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 455345,
+      "patientBloodGroup": "A-",
+      "patientDisease": "something",
+      "patientTemperature": 23,
+      "patientWeight": 23,
+      "patientBP": 23,
+      "patientGlucose": 23,
+      "date": "2023-01-22",
+      "time": "23:51",
+      "__v": 0
+    },
+    {
+      "ID": "63d41d6c44f1139faf7837e6",
+      "docName": "erqwrwer",
+      "docDepartment": "werqerq",
+      "docMobile": 24242342,
+      "medicines": [
+        {
+          "medName": "sdfsdf",
+          "dosage": 1,
+          "duration": "Before Meal",
+          "ID": "63d41d6d44f1139faf7837e7"
+        },
+        {
+          "medName": "sfsfs",
+          "dosage": 2,
+          "duration": "After Meal",
+          "ID": "63d41d6d44f1139faf7837e8"
+        }
+      ],
+      "extrainfo": "34sfsfsfs",
+      "patientName": "ssadfa",
+      "patientAge": 5435435,
+      "email": "rajendrapatel@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 4345435,
+      "patientBloodGroup": "A+",
+      "patientDisease": "sdfasdfsa",
+      "patientTemperature": 5345,
+      "patientWeight": 345345,
+      "patientBP": 34534,
+      "patientGlucose": 34534,
+      "date": "2023-01-20",
+      "time": "00:26",
+      "__v": 0
+    },
+    {
+      "ID": "63d9ecbc5c163869ebb3e77d",
+      "docName": "Rajendra",
+      "docDepartment": "cardiology",
+      "docMobile": 32124411,
+      "medicines": [
+        {
+          "medName": "Paracetamol",
+          "dosage": 1,
+          "duration": "After Meal",
+          "ID": "63d9ecbc5c163869ebb3e77e"
+        },
+        {
+          "medName": "aaaa",
+          "dosage": 2,
+          "duration": "Before Meal",
+          "ID": "63d9ecbc5c163869ebb3e77f"
+        }
+      ],
+      "extrainfo": "no info",
+      "patientName": "Piyush",
+      "patientAge": 22,
+      "email": "agrawaljoy1@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 13231,
+      "patientBloodGroup": "A+",
+      "patientDisease": "sfdfdszf",
+      "patientTemperature": 99,
+      "patientWeight": 67,
+      "patientBP": 120,
+      "patientGlucose": 55,
+      "date": "2023-02-17",
+      "time": "10:12",
+      "__v": 0
+    },
+    {
+      "ID": "63d9f5cb82a38cb046f5fb40",
+      "docName": "Rajendra",
+      "docDepartment": "mb mnb",
+      "docMobile": 14324324,
+      "medicines": [
+        {
+          "medName": "Paracetamol",
+          "dosage": 2,
+          "duration": "After Meal",
+          "ID": "63d9f5cb82a38cb046f5fb41"
+        }
+      ],
+      "extrainfo": "6534fgxdgf",
+      "patientName": "Piyush",
+      "patientAge": 22,
+      "email": "agrawaljoy1@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 21253243,
+      "patientBloodGroup": "A+",
+      "patientDisease": "bp",
+      "patientTemperature": 34,
+      "patientWeight": 45,
+      "patientBP": 345,
+      "patientGlucose": 78,
+      "date": "2023-02-15",
+      "time": "10:50",
+      "__v": 0
+    },
+    {
+      "ID": "63da11f214c5ccb9cb11ef33",
+      "docName": "Rajendra",
+      "docDepartment": "cardiology",
+      "docMobile": 1324124124,
+      "medicines": [
+        {
+          "medName": "Paracetamol",
+          "dosage": 2,
+          "duration": "After Meal",
+          "ID": "63da11f214c5ccb9cb11ef34"
+        },
+        {
+          "medName": "aaa",
+          "dosage": null,
+          "duration": "Before Meal",
+          "ID": "63da11f214c5ccb9cb11ef35"
+        }
+      ],
+      "extrainfo": "22",
+      "patientName": "Piyush",
+      "patientAge": 22,
+      "email": "agrawaljoy1@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 124124142,
+      "patientBloodGroup": "B+",
+      "patientDisease": "bn c bcb",
+      "patientTemperature": 22,
+      "patientWeight": 22,
+      "patientBP": 22,
+      "patientGlucose": 22,
+      "date": "2023-02-17",
+      "time": "15:47",
+      "__v": 0
+    },
+    {
+      "ID": "64138f641ebd14b2c4cdd19c",
+      "docName": "eslam",
+      "docDepartment": "kjij",
+      "docMobile": 866226,
+      "medicines": [
+        {
+          "medName": "",
+          "dosage": 2,
+          "duration": "After Meal",
+          "ID": "64138f641ebd14b2c4cdd19d"
+        }
+      ],
+      "extrainfo": "ydtrdt",
+      "patientName": "eslam",
+      "patientAge": 10,
+      "email": "anasimo@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 222,
+      "patientBloodGroup": "B+",
+      "patientDisease": "22",
+      "patientTemperature": 9,
+      "patientWeight": 55,
+      "patientBP": 140,
+      "patientGlucose": 99,
+      "date": "2023-03-16",
+      "time": "19:54",
+      "__v": 0
+    },
+    {
+      "ID": "64139679eaab00d4c74c268b",
+      "docName": "eslam",
+      "docDepartment": "surgery",
+      "docMobile": 105458487,
+      "medicines": [
+        {
+          "medName": "4444",
+          "dosage": 1,
+          "duration": "After Meal",
+          "ID": "64139679eaab00d4c74c268c"
+        },
+        {
+          "medName": "",
+          "dosage": null,
+          "duration": "",
+          "ID": "64139679eaab00d4c74c268d"
+        },
+        {
+          "medName": "",
+          "dosage": null,
+          "duration": "",
+          "ID": "64139679eaab00d4c74c268e"
+        },
+        {
+          "medName": "",
+          "dosage": null,
+          "duration": "",
+          "ID": "64139679eaab00d4c74c268f"
+        },
+        {
+          "medName": "drr",
+          "dosage": 3,
+          "duration": "Dosage",
+          "ID": "64139679eaab00d4c74c2690"
+        }
+      ],
+      "extrainfo": "saraaaaa",
+      "patientName": "saraa ahmed mohamed\t",
+      "patientAge": 19,
+      "email": "anasimo@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 2151554,
+      "patientBloodGroup": "AB+",
+      "patientDisease": "helling",
+      "patientTemperature": 45,
+      "patientWeight": 77,
+      "patientBP": 138,
+      "patientGlucose": 10,
+      "date": "2023-03-29",
+      "time": "20:25",
+      "__v": 0
+    },
+    {
+      "ID": "6414088a8cd49b67b2c3a2b1",
+      "docName": "Piyush",
+      "docDepartment": "ENT",
+      "docMobile": 9586097175,
+      "medicines": [
+        {
+          "medName": "Dolo",
+          "dosage": 1,
+          "duration": "After Meal",
+          "ID": "6414088a8cd49b67b2c3a2b2"
+        },
+        {
+          "medName": "Dolo",
+          "dosage": null,
+          "duration": "",
+          "ID": "6414088a8cd49b67b2c3a2b3"
+        },
+        {
+          "medName": "Para",
+          "dosage": null,
+          "duration": "",
+          "ID": "6414088a8cd49b67b2c3a2b4"
+        }
+      ],
+      "extrainfo": "No",
+      "patientName": "Vatsal",
+      "patientAge": 20,
+      "email": "vatsal@gmail.com",
+      "patientGender": "Male",
+      "patientMobile": 9106781077,
+      "patientBloodGroup": "A+",
+      "patientDisease": "COVID",
+      "patientTemperature": 55,
+      "patientWeight": 75,
+      "patientBP": 20,
+      "patientGlucose": 30,
+      "date": "2023-03-18",
+      "time": "11:58",
+      "__v": 0
+    }
+]

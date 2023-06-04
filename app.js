@@ -13,12 +13,113 @@ app.use(express.json());
 const dbl = './data.json';
 const doctor_base = './doctor.json';
 const patient_base = './patient.json';
+const Doctor_User = './doctor_user.json';
+const Patient_User = './patient_user.json';
+const Appoint_base = './appointments.json';
+
+app.get('/doctorsidlist',async (req,res)=>{
+  const data = await fs.readFile(doctor_base);
+  const doctors = JSON.parse(data);
+  let list=[];
+  doctors.forEach((e)=>list.push(e.docName +" : "+e.ID));
+  res.status(201).json(list
+    
+    
+    );
+})
+
+app.get('/doctorstimea/:ID',async (req,res)=>{
+  const id = req.params.ID;
+  const data = await fs.readFile(Appoint_base);
+  const doctors = JSON.parse(data);
+  let timing =[];
+  doctors.forEach((x)=>{if(x.docID==id)timing.push({...x})});
+  const data2 = await fs.readFile(doctor_base);
+  const doctors2 = JSON.parse(data2);
+  let timing2 ="";
+  doctors2.forEach((x)=>{if(x.ID==id)timing2=x.Slots});
+  if(timing=="")res.status(201).json(timing2);
+  else {
+  let px =[];
+   timing2.forEach((y)=> { 
+    let py=[];
+    y.time.forEach((x)=>{timing.map((z)=>(x==z.time && y.day ==z.day)?null:py.push(x))});
+
+px.push({day: y.day, time : py});
+});
+res.status(201).json(px);
+}})
+app.get('/doctorstime/:ID',async (req,res)=>{
+  const id = req.params.ID;
+  const data = await fs.readFile(Appoint_base);
+  const doctors = JSON.parse(data);
+  let timing =[];
+  doctors.forEach((x)=>{if(x.docID==id)timing.push({day:x.day, time:x.time})});
+  //const doctors = JSON.parse(data);
+  res.status(201).json(timing);
+})
+app.get('/doctorslot/:ID',async (req,res)=>{
+  const id = req.params.ID;
+  const data = await fs.readFile(doctor_base);
+  const doctors = JSON.parse(data);
+  let timing ="";
+  doctors.forEach((x)=>{if(x.ID==id)timing=x.Slots});
+  //const doctors = JSON.parse(data);
+  res.status(201).json(timing);
+})
+app.get('./Doctor_User2/:ID',async (req,res)=>{
+
+  const id = req.params.ID;
+  const data = await fs.readFile(Doctor_User);
+  const doctors = JSON.parse(data);
+  const doctor = doctors.find(item=> item.ID===id);
+
+  if(!doctor){
+     res.status(404).json({massage:'doctor not found'});
+  }
+ else 
+  res.status(200).json(doctor);
+})
+
+app.get('./Doctor_User/:ID',async (req,res)=>{
+
+  const id = req.params.ID;
+  const data = await fs.readFile(Doctor_User);
+  const doctors = JSON.parse(data);
+  const doctor = doctors.find(item=> item.ID===id);
+
+  if(!doctor){
+     res.status(404).json({massage:'doctor not found'});
+  }
+ else 
+  res.status(200).json(doctor);
+})
+    
 
 app.get('/doctors',async (req,res)=>{
   const data = await fs.readFile(doctor_base);
   const doctors = JSON.parse(data);
   res.status(201).json(doctors);
 })
+
+app.get('/patients',async (req,res)=>{
+  const data = await fs.readFile(patient_base);
+  const doctors = JSON.parse(data);
+  res.status(201).json(doctors);
+})
+app.post('/patientapp/:ID',async(req,res)=>{
+  const id = req.params.ID;
+  const temp={
+    ID : id,
+      ...req.body,
+  };
+  const data = await fs.readFile(Appoint_base);
+  const doctors =JSON.parse(data);
+  doctors.push(temp);
+  await fs.writeFile(Appoint_base,JSON.stringify(doctors));
+  res.status(201).json(doctors);
+})
+
 
 app.post('/doctor',async(req,res)=>{
 
@@ -32,6 +133,68 @@ app.post('/doctor',async(req,res)=>{
   await fs.writeFile(doctor_base,JSON.stringify(doctors));
   res.status(201).json(doctors);
 })
+
+app.post('/doctor_user',async(req,res)=>{
+
+  const itemx={
+      ...req.body,
+  };
+  const data = await fs.readFile(doctor_base);
+  const data2 = await fs.readFile(Doctor_User);
+  const doctors =JSON.parse(data);
+  const doctors2 =JSON.parse(data2);
+  const doctor1 = doctors.find(item=> item.ID===itemx.ID);
+  const doctor2 = doctors2.find(item=> item.ID===itemx.ID);
+
+
+  if(!doctor2 || (doctor2.password != itemx.password)){
+    res.status(404).json({massage:'not found'});
+  }
+  else{
+    res.status(201).json({message:"Successful", user : {...doctor1},
+    token : "dfdghgfh"
+  });
+    }
+})
+
+app.post('/patient_user',async(req,res)=>{
+
+  const itemx={
+      ...req.body,
+  };
+  const data = await fs.readFile(patient_base);
+  const data2 = await fs.readFile(Patient_User);
+  const doctors =JSON.parse(data);
+  const doctors2 =JSON.parse(data2);
+  const doctor2 = doctors.find(item=> item.ID===itemx.ID);
+  const doctor = doctors2.find(item=> item.ID===itemx.ID);
+
+
+
+  if(!doctor || (doctor.password != itemx.password)){
+    res.status(404).json({massage:'not found'});
+  }
+  else{
+  res.status(201).json({message:"Successful", user : {...doctor2},
+  token : "dfdghgfh"
+});
+  }
+})
+
+
+app.post('/patient',async(req,res)=>{
+
+  const patient={
+      ...req.body,
+      ID:shortid.generate(),
+  };
+  const data = await fs.readFile(patient_base);
+  const patients =JSON.parse(data);
+  patients.push(patient);
+  await fs.writeFile(patient_base,JSON.stringify(patients));
+  res.status(201).json(patients);
+})
+
 app.get('/doctor/:ID',async (req,res)=>{
 
   const id = req.params.ID;
@@ -48,16 +211,16 @@ app.get('/doctor/:ID',async (req,res)=>{
 app.get('/doctorapp/:ID',async (req,res)=>{
 
   const id = req.params.ID;
-  const data = await fs.readFile(patient_base);
+  const data = await fs.readFile(Appoint_base);
+  const data2 = await fs.readFile(patient_base);
   const doctors = JSON.parse(data);
-  let doctor =[];
-   doctors.map(item=> {if(item.doctorid===id)doctor.push(item)});
+  const doctors2 = JSON.parse(data2);
+  let patient =[];
+   doctors.forEach((item)=> (item.docID==id)?patient.push(item.ID):null);   
+   let patients =[];
+   doctors2.forEach((item)=> patient.forEach((item2)=>item.ID==item2? patients.push(item):null));
 
-  if(!doctor){
-     res.status(404).json({massage:'doctor not found'});
-  }
- else 
-  res.status(200).json(doctor);
+  res.status(200).json(patients);
 })
 app.get('/patient/:id',async (req,res)=>{
 
@@ -73,10 +236,10 @@ app.get('/patient/:id',async (req,res)=>{
   res.status(200).json(patient);
 })
 
-app.delete('/:id',async (req,res)=>{
+app.delete('/appdel/:id',async (req,res)=>{
 
   const id = req.params.id;
-  const data = await fs.readFile(dbl);
+  const data = await fs.readFile(Appoint_base);
   const players = JSON.parse(data);
   let player = players.find((item) => item.id===id);
 
@@ -84,9 +247,9 @@ app.delete('/:id',async (req,res)=>{
      
   }
  
-  const player2 =  players.find((item) => item.id!==id);
-  await fs.writeFile(dbl, JSON.stringify(player2));
-  res.status(200).json(player2);
+  players.pop(player)
+  await fs.writeFile(Appoint_base, JSON.stringify(players));
+  res.status(200).json(players);
 
  
 })

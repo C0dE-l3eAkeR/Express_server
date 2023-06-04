@@ -1,15 +1,13 @@
-GET http://localhost:4000/doctorapp/aniss
+GET http://localhost:4000/doctorapp/100
 
 ###
-GET http://localhost:4000
+GET https://zany-gray-clam-gear.cyclic.app/reports
 ###
-POST http://localhost:4000
+POST http://localhost:4000/doctorapp/100
 Content-Type: application/json
 
 {
-    "name":"mddd",
-    "age" : "33sda",
-    "address":"dhsdaka"
+    "id" : "100"
 }
 
 ###
@@ -25,15 +23,13 @@ Content-Type: application/json
 
 ###
 
-DELETE  http://localhost:4000/w8ZeCyeKd  
+DELETE  http://localhost:4000/appdel/100
 
 ###
-POST http://localhost:4000/doctor
+POST http://localhost:4000/doctor_user
 Content-Type: application/json
 
 {
-    "name":"kanis", 
-    "address":"dhanmondi",
-    "sector":"surgery",
-    "blood_group":"A+"
+    "ID" : "100",
+    "password" : "masai"
 }

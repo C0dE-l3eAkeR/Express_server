@@ -1,1 +1,9 @@
-[{"docName":"anis","address":"dhanmondi","age":"30","gender":"male","education":"mbbs","department":"surgery","mobile":"01787xxxx","DOB":"3-5-1966","bloodGroup":"A+","ID":"aniss", "password":"100"}]
+[{"ID":"100",
+"Slots" :[
+    {"day":"Tuesday",
+    "time":["05.00pm", "05.15pm","05.30pm", "06.00pm"]},
+    {"day":"Friday"  ,
+    "time":["05.00pm", "05.15pm","05.30pm", "06.00pm"]}
+]
+, 
+"docName":"anis","docDepartment":"Cardialogy","docMobile":4345345,"userType":"doctor", "gender":"male", "education":"MBBS", "age":"43","DOB":"3-7-1987"}]
