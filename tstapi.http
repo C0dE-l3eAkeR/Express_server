@@ -1,13 +1,15 @@
-GET http://localhost:4000/doctorapp/100
+GET http://localhost:4000/doctorstimea/100
 
 ###
 GET https://zany-gray-clam-gear.cyclic.app/reports
 ###
-POST http://localhost:4000/doctorapp/100
+POST http://localhost:4000/doctorstimejson/100
 Content-Type: application/json
 
 {
-    "id" : "100"
+    "day" : "Tuesday",
+    "time" : "06.00pm"
+
 }
 
 ###

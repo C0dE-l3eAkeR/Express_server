@@ -6,4 +6,15 @@
     "time":["05.00pm", "05.15pm","05.30pm", "06.00pm"]}
 ]
 , 
-"docName":"anis","docDepartment":"Cardialogy","docMobile":4345345,"userType":"doctor", "gender":"male", "education":"MBBS", "age":"43","DOB":"3-7-1987"}]
+"docName":"Anis","docDepartment":"Cardialogy","docMobile":4345345,"userType":"doctor", "gender":"male", "education":"MBBS", "age":"43","DOB":"3-7-1987"},
+{"ID":"200",
+"Slots" :[
+    {"day":"Saturday",
+    "time":["05.00pm", "05.15pm","05.30pm", "06.00pm"]},
+    {"day":"Sunday"  ,
+    "time":["05.00pm", "05.15pm","05.30pm", "06.00pm"]}
+]
+, 
+"docName":"Kamal","docDepartment":"Neorology","docMobile":3423445,"userType":"doctor", "gender":"male", "education":"MBBS", "age":"40","DOB":"3-7-1988"}
+
+]

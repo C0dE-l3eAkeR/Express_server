@@ -21,11 +21,11 @@ app.get('/doctorsidlist',async (req,res)=>{
   const data = await fs.readFile(doctor_base);
   const doctors = JSON.parse(data);
   let list=[];
-  doctors.forEach((e)=>list.push(e.docName +" : "+e.ID));
-  res.status(201).json(list
-    
-    
-    );
+  doctors.forEach((e)=>list.push({Name : e.docName , ID: e.ID}));
+  let format="";
+ list.map((x)=>{format += "Name : "+ x.Name + " - ID : " + x.ID+ "\n"});
+res.status(201).json(format);
+
 })
 
 app.get('/doctorstimea/:ID',async (req,res)=>{
@@ -43,12 +43,48 @@ app.get('/doctorstimea/:ID',async (req,res)=>{
   let px =[];
    timing2.forEach((y)=> { 
     let py=[];
-    y.time.forEach((x)=>{timing.map((z)=>(x==z.time && y.day ==z.day)?null:py.push(x))});
+    y.time.forEach((x)=>{timing.map((z)=>(x==z.time && y.day ==z.day)?null:py.push(" "+x))});
 
 px.push({day: y.day, time : py});
 });
-res.status(201).json(px);
+let format="";
+ px.map((x)=>{format += x.day + " : " + x.time+ "\n"});
+res.status(201).json(format);
 }})
+
+app.post('/doctorstimejson/:ID',async (req,res)=>{
+  const id = req.params.ID;
+  const data = await fs.readFile(Appoint_base);
+  const doctors = JSON.parse(data);
+  let timing =[];
+  doctors.forEach((x)=>{if(x.docID==id)timing.push({...x})});
+  const data2 = await fs.readFile(doctor_base);
+  const doctors2 = JSON.parse(data2);
+  let timing2 ="";
+  doctors2.forEach((x)=>{if(x.ID==id)timing2=x.Slots});
+  if(timing=="")res.status(201).json(true);
+  else {
+  let px =[];
+   timing2.forEach((y)=> { 
+    let py=[];
+    y.time.forEach((x)=>{timing.map((z)=>(x==z.time && y.day ==z.day)?null:py.push(x))});
+
+px.push({day: y.day, time : py});});
+
+const temp ={
+  ...req.body
+}
+let pp2=false;
+let pp=false;
+px.map((y)=>{y.time.map((x)=>{(x==temp.time && y.day==temp.day)?pp2=true:pp=false;
+
+})});
+res.status(201).json(pp2);
+}
+
+})
+
+
 app.get('/doctorstime/:ID',async (req,res)=>{
   const id = req.params.ID;
   const data = await fs.readFile(Appoint_base);
@@ -97,7 +133,7 @@ app.get('./Doctor_User/:ID',async (req,res)=>{
     
 
 app.get('/doctors',async (req,res)=>{
-  const data = await fs.readFile(doctor_base);
+  const data = await fs.readFile(Doctor_User);
   const doctors = JSON.parse(data);
   res.status(201).json(doctors);
 })
@@ -186,13 +222,12 @@ app.post('/patient',async(req,res)=>{
 
   const patient={
       ...req.body,
-      ID:shortid.generate(),
   };
   const data = await fs.readFile(patient_base);
   const patients =JSON.parse(data);
   patients.push(patient);
   await fs.writeFile(patient_base,JSON.stringify(patients));
-  res.status(201).json(patients);
+  res.status(201).json(patient);
 })
 
 app.get('/doctor/:ID',async (req,res)=>{
